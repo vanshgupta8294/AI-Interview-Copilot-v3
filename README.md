@@ -1,5 +1,10 @@
-# 🤖 AI Interview Copilot V7
+# 🤖 AI Interview Copilot
 
+<p align="center">
+  <img src="static/assets/preview.png" alt="AI Interview Copilot Banner" width="100%">
+</p>
+
+AI Interview Copilot is a full-stack AI-powered interview practice platform built with Flask and Google Gemini.
 An AI-powered virtual interview coach that conducts face-to-face mock interviews using voice interaction, webcam recording, AI-generated follow-up questions, and a professional performance dashboard.
 
 🚀 Live Demo
