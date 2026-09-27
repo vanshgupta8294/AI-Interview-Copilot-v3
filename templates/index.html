@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Interview Copilot | Practice AI Interviews</title>
+
+    <link rel="icon" href="{{ url_for('static', filename='assets/logo.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- Background Glow -->
+    <div class="bg-glow glow1"></div>
+    <div class="bg-glow glow2"></div>
+
+    <div class="interview-page">
+
+        <!-- Header -->
+        <header class="interview-header">
+
+            <div class="logo">
+                <img src="{{ url_for('static', filename='assets/logo.png') }}"
+                     class="logo-img"
+                     alt="Logo">
+                AI Interview Copilot
+            </div>
+
+        </header>
+
+        <!-- Hero Section -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <h1>Practice Real AI Interviews with Instant Feedback</h1>
+
+                <p>
+                    Upload your resume, choose a role, answer 10 AI-generated interview
+                    questions, and receive a colorful performance dashboard with detailed
+                    feedback.
+                </p>
+
+                <form id="uploadForm" enctype="multipart/form-data">
+
+                    <div class="form-group">
+
+                        <label>Choose Job Role</label>
+
+                        <select name="role" id="role" required>
+
+                            <option value="General Interview">General Interview</option>
+                            <option value="Python Developer">Python Developer</option>
+                            <option value="Web Developer">Web Developer</option>
+                            <option value="Data Analyst">Data Analyst</option>
+                            <option value="Java Developer">Java Developer</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Upload Resume (PDF)</label>
+
+                        <input
+                            type="file"
+                            name="resume"
+                            accept=".pdf"
+                            required>
+
+                    </div>
+
+                    <div class="hero-buttons">
+
+                        <button type="submit" class="primary-btn">
+                            Start Interview
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+            <!-- AI Interviewer Card -->
+
+            <div class="ai-card">
+
+                <img
+                    src="{{ url_for('static', filename='assets/avatar.png') }}"
+                    id="avatar"
+                    class="ai-avatar-img"
+                    alt="AI Interviewer">
+
+                <h3>Emma</h3>
+
+                <p>AI Interviewer</p>
+
+                <p id="avatarStatus">
+                    <span class="live-dot"></span>
+                    Ready for Interview
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- Features -->
+
+        <section class="features-grid">
+
+            <div class="feature-card">
+
+                <icon name=bot size=2xl color=info/>
+
+                <h3>AI Interviewer</h3>
+
+                <p>Natural voice-based interview experience.</p>
+
+            </div>
+
+            <div class="feature-card">
+
+                <icon name=camera size=2xl color=info/>
+
+                <h3>Live Camera</h3>
+
+                <p>Webcam recording for review after interview.</p>
+
+            </div>
+
+            <div class="feature-card">
+
+                <icon name=chart-line size=2xl color=info/>
+
+                <h3>Performance Analytics</h3>
+
+                <p>WPM, confidence, eye contact, posture and more.</p>
+
+            </div>
+
+            <div class="feature-card">
+
+                <icon name=file-text size=2xl color=info/>
+
+                <h3>AI Report</h3>
+
+                <p>PDF report with suggestions and improvements.</p>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='js/avatar.js') }}"></script>
+
+    <script>
+        document.getElementById("uploadForm").addEventListener("submit", async function (e) {
+
+            e.preventDefault();
+
+            const formData = new FormData(this);
+
+            try {
+
+                const response = await fetch("/api/upload", {
+                    method: "POST",
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    window.location.href = "/interview";
+                } else {
+                    alert("Failed to start interview.");
+                }
+
+            } catch (err) {
+
+                console.error(err);
+                alert("Server connection failed.");
+
+            }
+
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,843 @@
+/* ==========================================================
+   AI Interview Copilot V11 Premium CSS
+   Colorful Glassmorphism Dashboard
+   ========================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+/* ---------- Reset ---------- */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins",sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:
+        linear-gradient(rgba(2,6,23,.82),rgba(2,6,23,.90)),
+        url("../assets/bg.jpg") center/cover fixed;
+    color:#F8FAFC;
+    overflow-x:hidden;
+}
+
+/* ---------- Scrollbar ---------- */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#0F172A;
+}
+
+::-webkit-scrollbar-thumb{
+    background:linear-gradient(180deg,#2563EB,#7C3AED);
+    border-radius:20px;
+}
+
+/* ---------- Background Glow ---------- */
+
+.bg-glow{
+    position:fixed;
+    width:430px;
+    height:430px;
+    border-radius:50%;
+    filter:blur(120px);
+    opacity:.25;
+    z-index:-1;
+}
+
+.glow1{
+    background:#2563EB;
+    top:-130px;
+    left:-130px;
+}
+
+.glow2{
+    background:#7C3AED;
+    bottom:-150px;
+    right:-120px;
+}
+
+/* ---------- Main Container ---------- */
+
+.interview-page{
+    width:min(1400px,95%);
+    margin:auto;
+    padding:28px 0 60px;
+}
+
+/* ---------- Header ---------- */
+
+.interview-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 24px;
+    background:rgba(15,23,42,.82);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:22px;
+    backdrop-filter:blur(18px);
+    margin-bottom:30px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-size:24px;
+    font-weight:700;
+    color:#60A5FA;
+}
+
+.logo-img{
+    width:42px;
+    height:42px;
+    object-fit:contain;
+}
+
+/* ---------- Buttons ---------- */
+
+.primary-btn,
+.secondary-btn{
+    padding:14px 28px;
+    border:none;
+    border-radius:14px;
+    cursor:pointer;
+    font-weight:600;
+    transition:.3s;
+}
+
+.primary-btn{
+    color:white;
+    background:linear-gradient(135deg,#2563EB,#7C3AED);
+    box-shadow:0 12px 25px rgba(37,99,235,.35);
+}
+
+.primary-btn:hover{
+    transform:translateY(-3px);
+}
+
+.secondary-btn{
+    background:rgba(255,255,255,.05);
+    color:white;
+    border:1px solid rgba(255,255,255,.12);
+}
+
+/* ---------- Hero ---------- */
+
+.hero{
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:40px;
+    align-items:center;
+    min-height:72vh;
+}
+
+.hero h1{
+    font-size:54px;
+    line-height:1.12;
+    background:linear-gradient(135deg,#ffffff,#60A5FA,#A78BFA);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    color:#CBD5E1;
+    line-height:1.8;
+    margin-top:20px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:18px;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+
+/* ---------- Forms ---------- */
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    margin-bottom:18px;
+}
+
+.form-group label{
+    color:#E2E8F0;
+}
+
+.form-group input,
+.form-group select{
+    background:#0F172A;
+    border:1px solid rgba(255,255,255,.08);
+    color:white;
+    padding:14px;
+    border-radius:14px;
+}
+
+/* ---------- Cards ---------- */
+
+.feature-card,
+.ai-card{
+    background:rgba(15,23,42,.82);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:22px;
+    backdrop-filter:blur(16px);
+    box-shadow:0 15px 35px rgba(0,0,0,.28);
+    padding:24px;
+    transition:.3s;
+}
+
+.feature-card:hover,
+.ai-card:hover{
+    transform:translateY(-5px);
+}
+
+.ai-card{
+    text-align:center;
+}
+
+/* ---------- Avatar ---------- */
+
+.ai-avatar-img{
+    width:120px;
+    height:120px;
+    object-fit:contain;
+    border-radius:50%;
+    padding:8px;
+    box-shadow:0 0 35px rgba(37,99,235,.4);
+}
+
+.ai-avatar-img:hover{
+    transform:scale(1.05);
+}
+
+.live-dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#22C55E;
+    display:inline-block;
+    margin-right:6px;
+}
+
+/* ---------- Interview Layout ---------- */
+
+.interview-layout{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:24px;
+    margin-bottom:25px;
+}
+
+.camera-video,
+#video{
+    width:100%;
+    height:360px;
+    object-fit:cover;
+    border-radius:18px;
+    background:black;
+}
+
+.question-box{
+    margin-top:15px;
+    background:#1E293B;
+    border-radius:16px;
+    padding:20px;
+    line-height:1.7;
+    font-size:20px;
+}
+
+.transcript-box{
+    background:#1E293B;
+    border-radius:16px;
+    padding:18px;
+    min-height:120px;
+    line-height:1.7;
+}
+
+.timer-box{
+    background:#0F172A;
+    border:1px solid #2563EB;
+    color:#60A5FA;
+    padding:10px 18px;
+    border-radius:12px;
+    font-weight:700;
+}
+
+.status-row{
+    display:flex;
+    justify-content:center;
+    margin-top:15px;
+}
+
+.status-text{
+    color:#94A3B8;
+    margin-top:10px;
+}
+
+.button-row{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    flex-wrap:wrap;
+    margin-top:28px;
+}
+
+/* ==========================================================
+   RESULT DASHBOARD
+   ========================================================== */
+
+.dashboard-title{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.dashboard-title h1{
+    font-size:42px;
+    background:linear-gradient(135deg,#ffffff,#60A5FA,#A78BFA,#22C55E);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.dashboard-title p{
+    color:#CBD5E1;
+    margin-top:10px;
+}
+
+.robot-img{
+    width:90px;
+    height:90px;
+    margin-bottom:12px;
+}
+
+/* ---------- Score Ring ---------- */
+
+.score-section{
+    display:flex;
+    justify-content:center;
+    margin:35px 0;
+}
+
+.score-circle{
+    position:relative;
+    width:240px;
+    height:240px;
+}
+
+.score-text{
+    position:absolute;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+
+.score-text h1{
+    font-size:52px;
+    font-weight:800;
+}
+
+.score-text p{
+    color:#CBD5E1;
+}
+
+/* ---------- Dashboard Cards ---------- */
+
+.dashboard-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    margin:28px 0;
+}
+
+.tech-card{
+    background:linear-gradient(135deg,#2563EB22,#2563EB10);
+    border-color:#3B82F6;
+}
+
+.communication-card{
+    background:linear-gradient(135deg,#7C3AED22,#7C3AED10);
+    border-color:#8B5CF6;
+}
+
+.problem-card{
+    background:linear-gradient(135deg,#F59E0B22,#F59E0B10);
+    border-color:#F59E0B;
+}
+
+.confidence-card{
+    background:linear-gradient(135deg,#10B98122,#10B98110);
+    border-color:#10B981;
+}
+
+.tech-card h2,
+.communication-card h2,
+.problem-card h2,
+.confidence-card h2{
+    font-size:34px;
+}
+
+/* ---------- Analytics ---------- */
+
+.analytics-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:18px;
+}
+
+.metric-box{
+    background:#0F172A;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;
+    padding:22px;
+    text-align:center;
+}
+
+.metric-box h2{
+    font-size:32px;
+}
+
+.wpm-card{
+    background:linear-gradient(135deg,#2563EB22,#0F172A);
+}
+
+.eye-card{
+    background:linear-gradient(135deg,#8B5CF622,#0F172A);
+}
+
+.posture-card{
+    background:linear-gradient(135deg,#10B98122,#0F172A);
+}
+
+.filler-card{
+    background:linear-gradient(135deg,#F59E0B22,#0F172A);
+}
+
+.pause-card{
+    background:linear-gradient(135deg,#EF444422,#0F172A);
+}
+
+.words-card{
+    background:linear-gradient(135deg,#06B6D422,#0F172A);
+}
+
+/* ---------- Video ---------- */
+
+#recordedVideo{
+    width:100%;
+    border-radius:18px;
+    background:black;
+}
+
+/* ---------- Chart ---------- */
+
+.chart-container{
+    height:300px;
+    margin-top:20px;
+}
+
+/* ---------- Strength ---------- */
+
+.strength-card{
+    border-left:5px solid #22C55E;
+}
+
+.weakness-card{
+    border-left:5px solid #EF4444;
+}
+
+.tips-card{
+    border-left:5px solid #8B5CF6;
+}
+
+/* ---------- Lists ---------- */
+
+.tips-list{
+    list-style:none;
+    margin-top:15px;
+}
+
+.tips-list li{
+    background:rgba(255,255,255,.05);
+    border-radius:12px;
+    padding:14px;
+    margin-bottom:12px;
+}
+
+/* ---------- Question Cards ---------- */
+
+.question-card{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:16px;
+    padding:18px;
+    margin-bottom:12px;
+}
+
+.question-score{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#2563EB,#7C3AED);
+    color:white;
+    font-weight:700;
+}
+
+/* ---------- Transcript ---------- */
+
+#transcriptBox{
+    background:rgba(255,255,255,.05);
+    border-radius:16px;
+    padding:20px;
+    line-height:1.8;
+    max-height:260px;
+    overflow:auto;
+}
+
+/* ---------- Badges ---------- */
+
+.badge-grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.badge{
+    background:linear-gradient(135deg,#2563EB,#7C3AED);
+    color:white;
+    padding:10px 18px;
+    border-radius:999px;
+    font-size:14px;
+    font-weight:600;
+}
+
+/* ---------- Responsive ---------- */
+
+@media(max-width:900px){
+
+    .hero{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    .interview-layout{
+        grid-template-columns:1fr;
+    }
+
+    .interview-header{
+        flex-direction:column;
+        gap:14px;
+    }
+
+    .button-row{
+        flex-direction:column;
+    }
+
+    .primary-btn{
+        width:100%;
+    }
+
+    .analytics-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .question-card{
+        flex-direction:column;
+        text-align:center;
+    }
+}.progress-bar{
+    width:100%;
+    height:10px;
+    background:#1E293B;
+    border-radius:999px;
+    overflow:hidden;
+    margin-top:12px;
+}
+.progress-fill{
+    height:100%;
+    width:0;
+    border-radius:999px;
+    background:linear-gradient(90deg,#2563EB,#7C3AED,#10B981);
+    transition:width 1.5s ease;
+}.feature-card{
+    position:relative;
+    overflow:hidden;
+}
+
+.feature-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(135deg,transparent,rgba(255,255,255,.05),transparent);
+    transform:translateX(-100%);
+    transition:.6s;
+}
+
+.feature-card:hover::before{
+    transform:translateX(100%);
+}.ai-avatar-img{
+    animation:avatarFloat 4s ease-in-out infinite;
+}
+
+@keyframes avatarFloat{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-8px);
+    }
+}#recordedVideo{
+    border:2px solid rgba(96,165,250,.25);
+    box-shadow:0 15px 40px rgba(37,99,235,.25);
+}.badge{
+    animation:badgeGlow 2.5s infinite alternate;
+}
+
+@keyframes badgeGlow{
+    from{
+        box-shadow:0 0 8px rgba(37,99,235,.25);
+    }
+    to{
+        box-shadow:0 0 20px rgba(124,58,237,.45);
+    }
+}.interview-header{
+    position:sticky;
+    top:12px;
+    z-index:100;
+}.question-card{
+    border-left:5px solid #60A5FA;
+}.status-success{color:#22C55E;}
+.status-warning{color:#F59E0B;}
+.status-danger{color:#EF4444;}.loader-ring{
+    width:50px;
+    height:50px;
+    border:5px solid rgba(255,255,255,.08);
+    border-top-color:#60A5FA;
+    border-radius:50%;
+    animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}@media(max-width:600px){
+
+    .dashboard-grid,
+    .analytics-grid{
+        grid-template-columns:1fr;
+    }
+
+    .score-circle{
+        width:180px;
+        height:180px;
+    }
+
+    .score-text h1{
+        font-size:38px;
+    }
+}/* ==========================================================
+   AI Interview Copilot V11
+   Error-Free Premium Dashboard Fixes
+   Paste at the END of style.css
+   ========================================================== */
+
+/* ---------- Animations ---------- */
+
+@keyframes pulse{
+    0%{transform:scale(1);opacity:1;}
+    50%{transform:scale(1.6);opacity:.45;}
+    100%{transform:scale(1);opacity:1;}
+}
+
+@keyframes avatarTalk{
+    0%{transform:translateY(0) scale(1);}
+    50%{transform:translateY(-4px) scale(1.03);}
+    100%{transform:translateY(0) scale(1);}
+}
+
+@keyframes avatarFloat{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-8px);}
+}
+
+@keyframes badgeGlow{
+    from{box-shadow:0 0 8px rgba(37,99,235,.25);}
+    to{box-shadow:0 0 20px rgba(124,58,237,.45);}
+}
+
+@keyframes spin{
+    to{transform:rotate(360deg);}
+}
+
+/* ---------- AI Avatar ---------- */
+
+.ai-avatar-img{
+    width:120px;
+    height:120px;
+    object-fit:contain;
+    border-radius:50%;
+    padding:8px;
+    background:rgba(255,255,255,.04);
+    box-shadow:0 0 35px rgba(37,99,235,.40);
+    animation:avatarFloat 4s ease-in-out infinite;
+    transition:.3s;
+}
+
+.ai-avatar-img:hover{
+    transform:scale(1.05);
+}
+
+.ai-avatar-img.speaking{
+    animation:avatarTalk .5s infinite;
+}
+
+/* ---------- Feature Card Shine ---------- */
+
+.feature-card{
+    position:relative;
+    overflow:hidden;
+}
+
+.feature-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(135deg,transparent,rgba(255,255,255,.05),transparent);
+    transform:translateX(-100%);
+    transition:.6s;
+}
+
+.feature-card:hover::before{
+    transform:translateX(100%);
+}
+
+/* ---------- Progress Bars ---------- */
+
+.progress-bar{
+    width:100%;
+    height:10px;
+    background:#1E293B;
+    border-radius:999px;
+    overflow:hidden;
+    margin-top:12px;
+}
+
+.progress-fill{
+    height:100%;
+    width:0;
+    border-radius:999px;
+    background:linear-gradient(90deg,#2563EB,#7C3AED,#10B981);
+    transition:width 1.5s ease;
+}
+
+/* ---------- Premium Video ---------- */
+
+#recordedVideo,
+#video{
+    border:2px solid rgba(96,165,250,.25);
+    box-shadow:0 15px 40px rgba(37,99,235,.25);
+    border-radius:18px;
+}
+
+/* ---------- Badge Glow ---------- */
+
+.badge{
+    animation:badgeGlow 2.5s infinite alternate;
+}
+
+/* ---------- Sticky Header ---------- */
+
+.interview-header{
+    position:sticky;
+    top:12px;
+    z-index:100;
+}
+
+/* ---------- Question Card ---------- */
+
+.question-card{
+    border-left:5px solid #60A5FA;
+}
+
+/* ---------- Status Colors ---------- */
+
+.status-success{color:#22C55E;}
+.status-warning{color:#F59E0B;}
+.status-danger{color:#EF4444;}
+
+/* ---------- Loader ---------- */
+
+.loader-ring{
+    width:50px;
+    height:50px;
+    border:5px solid rgba(255,255,255,.08);
+    border-top-color:#60A5FA;
+    border-radius:50%;
+    animation:spin 1s linear infinite;
+}
+
+/* ---------- Better Spacing ---------- */
+
+.hero-buttons,
+.button-row{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+}
+
+.feature-card h3{
+    margin-bottom:10px;
+}
+
+.feature-card p{
+    color:#CBD5E1;
+    line-height:1.7;
+}
+
+/* ---------- Mobile Fix ---------- */
+
+@media(max-width:600px){
+
+    .dashboard-grid,
+    .analytics-grid{
+        grid-template-columns:1fr;
+    }
+
+    .score-circle{
+        width:180px;
+        height:180px;
+    }
+
+    .score-text h1{
+        font-size:38px;
+    }
+
+    .button-row{
+        flex-direction:column;
+    }
+
+    .primary-btn{
+        width:100%;
+    }
+}

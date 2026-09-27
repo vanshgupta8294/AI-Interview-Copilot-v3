@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Interview Report</title>
+
+<link rel="icon" href="{{ url_for('static', filename='assets/logo.png') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<div class="bg-glow glow1"></div>
+<div class="bg-glow glow2"></div>
+
+<div class="interview-page">
+
+<header class="interview-header">
+
+<div class="logo">
+
+<img src="{{ url_for('static', filename='assets/logo.png') }}"
+class="logo-img">
+
+AI Interview Copilot
+
+</div>
+
+</header>
+
+<!-- Dashboard Header -->
+
+<div class="dashboard-title">
+
+<img src="{{ url_for('static', filename='assets/ai-robot.png') }}"
+class="robot-img">
+
+<h1>AI Interview Report</h1>
+
+<p>Your performance analysis based on your interview.</p>
+
+</div>
+
+<!-- Score -->
+
+<section class="score-section">
+
+<div class="score-circle">
+
+<svg width="240" height="240" viewBox="0 0 240 240">
+
+<defs>
+
+<linearGradient id="scoreGradient"
+x1="0%" y1="0%"
+x2="100%" y2="100%">
+
+<stop offset="0%" stop-color="#2563EB"/>
+<stop offset="50%" stop-color="#7C3AED"/>
+<stop offset="100%" stop-color="#10B981"/>
+
+</linearGradient>
+
+</defs>
+
+<circle
+cx="120"
+cy="120"
+r="90"
+fill="none"
+stroke="#1E293B"
+stroke-width="16"/>
+
+<circle
+id="progressCircle"
+cx="120"
+cy="120"
+r="90"
+fill="none"
+stroke="url(#scoreGradient)"
+stroke-width="16"
+stroke-linecap="round"
+stroke-dasharray="565"
+stroke-dashoffset="565"
+transform="rotate(-90 120 120)"/>
+
+</svg>
+
+<div class="score-text">
+
+<h1 id="scoreValue">AI</h1>
+
+<p>Overall Score</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Main Cards -->
+
+<div class="dashboard-grid">
+
+<div class="feature-card tech-card">
+
+<h4>Technical</h4>
+
+<h2 id="technicalScore">--</h2>
+
+</div>
+
+<div class="feature-card communication-card">
+
+<h4>Communication</h4>
+
+<h2 id="communicationScore">--</h2>
+
+</div>
+
+<div class="feature-card problem-card">
+
+<h4>Problem Solving</h4>
+
+<h2 id="problemScore">--</h2>
+
+</div>
+
+<div class="feature-card confidence-card">
+
+<h4>Confidence</h4>
+
+<h2 id="confidenceScore">--</h2>
+
+</div>
+
+</div>
+
+<!-- Recording -->
+
+<div class="feature-card">
+
+<h3>🎥 Interview Recording</h3>
+
+<video
+id="recordedVideo"
+controls
+playsinline
+width="100%"
+style="border-radius:18px;background:black;">
+</video>
+
+</div>
+
+<!-- Analytics -->
+
+<div class="feature-card chart-card">
+
+<h3>📊 Interview Analytics</h3>
+
+<div class="analytics-grid">
+
+<div class="metric-box wpm-card">
+
+<h4>⚡ Words/Min</h4>
+
+<h2 id="wpm">0</h2>
+
+</div>
+
+<div class="metric-box eye-card">
+
+<h4>👀 Eye Contact</h4>
+
+<h2 id="eyeContactResult">0%</h2>
+
+</div>
+
+<div class="metric-box posture-card">
+
+<h4>🧍 Posture</h4>
+
+<h2 id="postureResult">0%</h2>
+
+</div>
+
+<div class="metric-box filler-card">
+
+<h4>🎤 Filler Words</h4>
+
+<h2 id="fillerWords">0</h2>
+
+</div>
+
+<div class="metric-box pause-card">
+
+<h4>⏸ Long Pauses</h4>
+
+<h2 id="longPauses">0</h2>
+
+</div>
+
+<div class="metric-box words-card">
+
+<h4>📝 Total Words</h4>
+
+<h2 id="totalWords">0</h2>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Confidence Chart -->
+
+<div class="feature-card chart-card">
+
+<h3>📈 Confidence Timeline</h3>
+
+<div class="chart-container">
+
+<canvas id="confidenceChart"></canvas>
+
+</div>
+
+</div>
+
+<!-- Question Wise -->
+
+<div class="feature-card">
+
+<h3>🎯 Question-wise Performance</h3>
+
+<div id="questionScores"></div>
+
+</div>
+
+<!-- Strengths -->
+
+<div class="dashboard-grid">
+
+<div class="feature-card strength-card">
+
+<h3>💪 Strengths</h3>
+
+<ul id="strengthList" class="tips-list"></ul>
+
+</div>
+
+<div class="feature-card weakness-card">
+
+<h3>⚠ Weaknesses</h3>
+
+<ul id="weaknessList" class="tips-list"></ul>
+
+</div>
+
+</div>
+
+<!-- Improvement -->
+
+<div class="feature-card tips-card">
+
+<h3>🚀 Improvement Plan</h3>
+
+<ul id="tipsList" class="tips-list"></ul>
+
+</div>
+
+<!-- Transcript -->
+
+<div class="feature-card">
+
+<h3>📝 Interview Transcript</h3>
+
+<div id="transcriptBox"></div>
+
+</div>
+
+<!-- Badges -->
+
+<div class="feature-card">
+
+<h3>🏆 AI Badges</h3>
+
+<div id="badges" class="badge-grid"></div>
+
+</div>
+
+<!-- Buttons -->
+
+<div class="button-row">
+
+<button id="downloadRecording" class="primary-btn">
+
+⬇ Download Recording
+
+</button>
+
+<button id="downloadReport" class="primary-btn">
+
+📄 Download AI Report
+
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+// =============================
+// Load Report
+// =============================
+
+const report = JSON.parse(
+sessionStorage.getItem("interviewReport") || "{}"
+);
+
+const analytics = report.analytics || {};
+
+const score = report.overall;
+
+document.getElementById("scoreValue").innerText =
+(score === null || score === undefined)
+? "AI"
+: score;
+
+document.getElementById("technicalScore").innerText =
+report.technical == null
+? "--"
+: report.technical + "%";
+
+document.getElementById("communicationScore").innerText =
+report.communication == null
+? "--"
+: report.communication + "%";
+
+document.getElementById("problemScore").innerText =
+report.problem_solving == null
+? "--"
+: report.problem_solving + "%";
+
+document.getElementById("confidenceScore").innerText =
+report.confidence == null
+? "--"
+: report.confidence + "%";
+
+// Score Ring
+
+if(typeof score === "number"){
+
+const circumference = 565;
+
+document.getElementById("progressCircle").style.strokeDashoffset =
+circumference - (score/100)*circumference;
+
+}
+
+// Recording
+
+const recording = sessionStorage.getItem("interviewRecording");
+
+if(recording){
+
+document.getElementById("recordedVideo").src = recording;
+
+document.getElementById("downloadRecording").onclick = ()=>{
+
+const a = document.createElement("a");
+
+a.href = recording;
+
+a.download = "Interview-Recording.webm";
+
+a.click();
+
+};
+
+}
+
+// PDF
+
+document.getElementById("downloadReport").onclick = ()=>{
+
+window.location.href="/download-report";
+
+};
+
+// Analytics
+
+document.getElementById("wpm").innerText =
+analytics.wpm || 0;
+
+document.getElementById("eyeContactResult").innerText =
+(analytics.eyeContact || 0)+"%";
+
+document.getElementById("postureResult").innerText =
+(analytics.posture || 0)+"%";
+
+document.getElementById("fillerWords").innerText =
+analytics.fillerWords || 0;
+
+document.getElementById("longPauses").innerText =
+analytics.longPauses || 0;
+
+document.getElementById("totalWords").innerText =
+analytics.totalWords || 0;
+
+// Lists
+
+(report.strengths||[]).forEach(item=>{
+
+strengthList.innerHTML += `<li>✅ ${item}</li>`;
+
+});
+
+(report.weaknesses||[]).forEach(item=>{
+
+weaknessList.innerHTML += `<li>⚠ ${item}</li>`;
+
+});
+
+(report.improvements||[]).forEach(item=>{
+
+tipsList.innerHTML += `<li>🚀 ${item}</li>`;
+
+});
+
+// Transcript
+
+transcriptBox.innerHTML =
+(report.transcript || "No transcript available.")
+.replace(/\n/g,"<br>");
+
+// Question Cards
+
+(report.question_scores||[]).forEach(q=>{
+
+questionScores.innerHTML += `
+<div class="question-card">
+
+<div>
+
+<strong>${q.question}</strong><br>
+
+<small>${q.feedback}</small>
+
+</div>
+
+<div class="question-score">
+
+${q.score}
+
+</div>
+
+</div>
+`;
+
+});
+
+// Badges
+
+const badges=[];
+
+if((report.communication||0)>=80)
+badges.push("Excellent Communicator");
+
+if((report.technical||0)>=80)
+badges.push("Strong Technical Skills");
+
+if((report.confidence||0)>=80)
+badges.push("Confident Speaker");
+
+badges.forEach(b=>{
+
+document.getElementById("badges").innerHTML +=
+`<span class="badge">${b}</span>`;
+
+});
+
+// Chart
+
+new Chart(document.getElementById("confidenceChart"),{
+
+type:"line",
+
+data:{
+
+labels:["Q1","Q2","Q3","Q4","Q5","Q6","Q7","Q8","Q9","Q10"],
+
+datasets:[{
+
+label:"Confidence",
+
+data:analytics.confidenceTimeline || [],
+
+borderColor:"#60A5FA",
+
+backgroundColor:"rgba(96,165,250,.2)",
+
+fill:true,
+
+tension:.4,
+
+pointRadius:5
+
+}]
+
+},
+
+options:{
+
+responsive:true,
+
+maintainAspectRatio:false,
+
+plugins:{
+
+legend:{
+
+labels:{color:"white"}
+
+}
+
+},
+
+scales:{
+
+x:{
+ticks:{color:"#CBD5E1"},
+grid:{color:"rgba(255,255,255,.08)"}
+},
+
+y:{
+min:0,
+max:100,
+ticks:{color:"#CBD5E1"},
+grid:{color:"rgba(255,255,255,.08)"}
+}
+
+}
+
+}
+
+});
+
+</script>
+
+</body>
+</html>
